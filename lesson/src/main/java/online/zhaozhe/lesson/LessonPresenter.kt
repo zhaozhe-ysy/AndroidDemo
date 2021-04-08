@@ -37,12 +37,12 @@ class LessonPresenter(val activity: LessonActivity) {
     }
 
     fun showPlayback() {
-        val playbackLessons: MutableList<Lesson> = ArrayList()
-        for (lesson in lessons) {
-            if (lesson.getState() === Lesson.State.PLAYBACK) {
-                playbackLessons.add(lesson)
-            }
-        }
-        activity.showResult(playbackLessons)
+//        lessons.forEach{
+//            if(it.state === Lesson.State.PLAYBACK){
+//                playbackLessons.add(it)
+//            }
+//        }
+
+        activity.showResult(lessons.filter { it.state === Lesson.State.PLAYBACK })
     }
 }

@@ -56,6 +56,20 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         val username = et_username.text.toString()
         val password = et_password.text.toString()
         val code = et_code.text.toString()
+
+
+        fun verify(user: User): Boolean{
+            if (user.username?.length ?: 0 < 4){
+                Utils.toast("用户名不合法")
+                return false
+            }
+            if (user.password?.length ?: 0 < 4){
+                Utils.toast("密码不合法")
+                return false
+            }
+            return true
+        }
+
         if (verify(User(username,password,code))){
             CacheUtils.save(usernameKey,username)
             CacheUtils.save(passwordKey,password)
@@ -63,15 +77,5 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    private fun verify(user: User): Boolean{
-        if (user.username!!.length < 4){
-            Utils.toast("用户名不合法")
-            return false
-        }
-        if (user.password!!.length < 4){
-            Utils.toast("密码不合法")
-            return false
-        }
-        return true
-    }
+
 }

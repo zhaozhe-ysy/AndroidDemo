@@ -34,24 +34,15 @@ class LessonAdapter : RecyclerView.Adapter<LessonAdapter.LessonViewHolder>() {
      */
     class LessonViewHolder internal constructor(itemView: View) : BaseViewHolder(itemView) {
         fun onBind(lesson: Lesson) {
-            var date = lesson.getDate()
-            if (date == null) {
-                date = "日期待定"
-            }
+            var date = lesson.date ?: "日期待定"
             setText(R.id.tv_date, date)
-            setText(R.id.tv_content, lesson.getContent())
-            val state = lesson.getState()
-            if (state != null) {
-                setText(R.id.tv_state, state.stateName())
-                var colorRes: Int = R.color.playback
-                when (state) {
-                    Lesson.State.PLAYBACK -> {
-
-                        // 即使在 {} 中也是需要 break 的。
-                        colorRes = R.color.playback
-                    }
-                    Lesson.State.LIVE -> colorRes = R.color.live
-                    Lesson.State.WAIT -> colorRes = R.color.wait
+            setText(R.id.tv_content, lesson.content)
+            lesson.state?.let {
+                setText(R.id.tv_state, it.stateName())
+                val colorRes: Int = when (it) {
+                    Lesson.State.PLAYBACK -> R.color.playback
+                    Lesson.State.LIVE ->  R.color.live
+                    Lesson.State.WAIT ->  R.color.wait
                 }
                 val backgroundColor = itemView.context.getColor(colorRes)
                 getView<View>(R.id.tv_state)!!.setBackgroundColor(backgroundColor)

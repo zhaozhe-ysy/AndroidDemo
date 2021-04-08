@@ -12,20 +12,18 @@ import android.view.Gravity
 import android.util.TypedValue
 import online.zhaozhe.androiddemo.R
 import online.zhaozhe.core.utils.Utils
+import online.zhaozhe.core.utils.dp2px
 import java.util.*
 
 
-class CodeView : AppCompatTextView {
+class CodeView @JvmOverloads constructor(context: Context,attributeSet: AttributeSet? = null) : AppCompatTextView(context,attributeSet) {
 
-    constructor(context: Context) : this(context,null){
-
+    private val paint: Paint = Paint().apply {
+        this.isAntiAlias = true
+        this.style = Paint.Style.STROKE
+        this.color = context.getColor(R.color.colorAccent)
+        this.strokeWidth = 6f.dp2px()
     }
-
-    constructor(context: Context,attributeSet: AttributeSet?): super(context,attributeSet){
-
-    }
-
-    private val paint: Paint = Paint()
     private val codeList = arrayOf(
         "kotlin",
         "android",
@@ -42,10 +40,7 @@ class CodeView : AppCompatTextView {
         gravity = Gravity.CENTER
         setBackgroundColor(context.getColor(R.color.colorPrimary))
         setTextColor(Color.WHITE)
-        paint.isAntiAlias = true
-        paint.style = Paint.Style.STROKE
-        paint.color = context.getColor(R.color.colorAccent)
-        paint.strokeWidth = Utils.dp2px(6f)
+
         updateCode()
     }
 
