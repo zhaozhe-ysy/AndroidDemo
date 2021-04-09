@@ -8,14 +8,15 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import online.zhaozhe.androiddemo.activity.KotlinActivity
+import online.zhaozhe.androiddemo.activity.OkHttpActivity
 import online.zhaozhe.androiddemo.activity.RetrofitActivity
 import online.zhaozhe.core.BaseViewHolder
 
 class MainAdapter(private val context: Context) : RecyclerView.Adapter<MainAdapter.MainViewHolder>(){
 
-    private val data = arrayOf("kotlin","retrofit")
+    private val data = arrayOf("kotlin","retrofit","okhttp")
 
-    private val activityArray = arrayOf(KotlinActivity::class.java,RetrofitActivity::class.java)
+    private val activityArray = arrayOf(KotlinActivity::class.java,RetrofitActivity::class.java,OkHttpActivity::class.java)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_main,parent,false)
