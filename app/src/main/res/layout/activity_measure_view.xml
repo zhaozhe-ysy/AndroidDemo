@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<online.zhaozhe.androiddemo.widget.CameraView xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+<online.zhaozhe.androiddemo.widget.DrawableView xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="300dp"
+              android:layout_height="400dp">
 
-</online.zhaozhe.androiddemo.widget.CameraView>
+</online.zhaozhe.androiddemo.widget.DrawableView>
