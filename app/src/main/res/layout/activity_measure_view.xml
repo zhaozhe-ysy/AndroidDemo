@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<online.zhaozhe.androiddemo.widget.DrawableView xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="300dp"
-              android:layout_height="400dp">
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical">
 
-</online.zhaozhe.androiddemo.widget.DrawableView>
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#30000000">
+
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+        </EditText>
+
+    </FrameLayout>
+
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#30ff0000">
+
+        <online.zhaozhe.androiddemo.widget.MaterialEditText
+                android:id="@+id/met"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Username">
+
+        </online.zhaozhe.androiddemo.widget.MaterialEditText>
+
+    </FrameLayout>
+
+
+
+</LinearLayout>
