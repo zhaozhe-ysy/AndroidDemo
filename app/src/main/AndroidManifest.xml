@@ -26,6 +26,7 @@
         <activity android:name=".activity.AnimationActivity" />
         <activity android:name=".activity.CustomViewActivity" />
         <activity android:name=".activity.CustomLayoutActivity" />
+        <activity android:name=".activity.ScalableImageActivity" />
 
     </application>
 
