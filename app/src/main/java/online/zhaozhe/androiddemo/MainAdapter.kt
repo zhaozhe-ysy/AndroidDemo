@@ -12,7 +12,7 @@ import online.zhaozhe.core.BaseViewHolder
 
 class MainAdapter(private val context: Context) : RecyclerView.Adapter<MainAdapter.MainViewHolder>(){
 
-    private val data = arrayOf("kotlin","retrofit","okhttp","ViewMeasure","Animator","CustomView","CustomLayout","ScalableImageView")
+    private val data = arrayOf("kotlin","retrofit","okhttp","ViewMeasure","Animator","CustomView","CustomLayout","ScalableImageView","MultiTouch")
 
     private val activityArray = arrayOf(
         KotlinActivity::class.java,
@@ -22,7 +22,8 @@ class MainAdapter(private val context: Context) : RecyclerView.Adapter<MainAdapt
         AnimationActivity::class.java,
         CustomViewActivity::class.java,
         CustomLayoutActivity::class.java,
-        ScalableImageActivity::class.java
+        ScalableImageActivity::class.java,
+        MultiTouchActivity::class.java
     )
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {
