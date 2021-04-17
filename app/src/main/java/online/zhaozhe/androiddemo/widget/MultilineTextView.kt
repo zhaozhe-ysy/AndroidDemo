@@ -10,6 +10,7 @@ import android.util.AttributeSet
 import android.view.View
 import online.zhaozhe.androiddemo.R
 import online.zhaozhe.core.utils.dp
+import online.zhaozhe.core.utils.getAvatar
 import kotlin.math.max
 
 private val IMAGE_SIZE = 150.dp
@@ -27,7 +28,7 @@ class MultilineTextView(context: Context, attributeSet: AttributeSet)
     private val paint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         textSize = 16.dp
     }
-    private val bitmap = getAvatar(IMAGE_SIZE.toInt())
+    private val bitmap = getAvatar(resources, IMAGE_SIZE.toInt())
     private val fontMetrics = Paint.FontMetrics()
 
 
@@ -51,16 +52,5 @@ class MultilineTextView(context: Context, attributeSet: AttributeSet)
             start += count
             verticalOffset += paint.fontSpacing
         }
-    }
-
-    fun getAvatar(width: Int): Bitmap {
-
-        val options = BitmapFactory.Options();
-        options.inJustDecodeBounds = true
-        BitmapFactory.decodeResource(resources, R.drawable.avatar_rengwuxian,options)
-        options.inJustDecodeBounds = false
-        options.inDensity = options.outWidth
-        options.inTargetDensity = width
-        return BitmapFactory.decodeResource(resources, R.drawable.avatar_rengwuxian,options)
     }
 }

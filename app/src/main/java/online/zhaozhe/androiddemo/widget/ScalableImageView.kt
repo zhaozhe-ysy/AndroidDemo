@@ -16,6 +16,7 @@ import androidx.core.view.GestureDetectorCompat
 import androidx.core.view.ViewCompat
 import online.zhaozhe.androiddemo.R
 import online.zhaozhe.core.utils.dp
+import online.zhaozhe.core.utils.getAvatar
 import kotlin.math.max
 import kotlin.math.min
 
@@ -27,7 +28,7 @@ class ScalableImageView(context: Context, attributeSet: AttributeSet)
     : View(context,attributeSet) {
 
     private val paint = Paint(Paint.ANTI_ALIAS_FLAG)
-    private val bitmap = getAvatar(IMAGE_SIZE)
+    private val bitmap = getAvatar(resources, IMAGE_SIZE)
 
     private var originalOffsetX = 0f
     private var originalOffsetY = 0f
@@ -87,18 +88,6 @@ class ScalableImageView(context: Context, attributeSet: AttributeSet)
         canvas.translate(offsetX * scaleFraction, offsetY * scaleFraction)
         canvas.scale(currentScale,currentScale,width / 2f,height / 2f)
         canvas.drawBitmap(bitmap,originalOffsetX,originalOffsetY,paint)
-    }
-
-
-
-    fun getAvatar(width: Int): Bitmap {
-        val options = BitmapFactory.Options();
-        options.inJustDecodeBounds = true
-        BitmapFactory.decodeResource(resources, R.drawable.avatar_rengwuxian,options)
-        options.inJustDecodeBounds = false
-        options.inDensity = options.outWidth
-        options.inTargetDensity = width
-        return BitmapFactory.decodeResource(resources, R.drawable.avatar_rengwuxian,options)
     }
 
     private fun fixOffset(){

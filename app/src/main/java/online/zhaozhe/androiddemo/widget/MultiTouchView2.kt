@@ -10,12 +10,13 @@ import android.view.MotionEvent
 import android.view.View
 import online.zhaozhe.androiddemo.R
 import online.zhaozhe.core.utils.dp
+import online.zhaozhe.core.utils.getAvatar
 
 class MultiTouchView2(context: Context, attributeSet: AttributeSet)
     : View(context,attributeSet){
 
     private val paint = Paint(Paint.ANTI_ALIAS_FLAG)
-    private val bitmap = getAvatar(200.dp.toInt())
+    private val bitmap = getAvatar(resources, 200.dp.toInt())
     private var offsetX = 0f
     private var offsetY = 0f
     private var downX = 0f
@@ -63,17 +64,5 @@ class MultiTouchView2(context: Context, attributeSet: AttributeSet)
 
         }
         return true
-    }
-
-
-
-    fun getAvatar(width: Int): Bitmap {
-        val options = BitmapFactory.Options();
-        options.inJustDecodeBounds = true
-        BitmapFactory.decodeResource(resources, R.drawable.avatar_rengwuxian,options)
-        options.inJustDecodeBounds = false
-        options.inDensity = options.outWidth
-        options.inTargetDensity = width
-        return BitmapFactory.decodeResource(resources, R.drawable.avatar_rengwuxian,options)
     }
 }

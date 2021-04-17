@@ -6,6 +6,7 @@ import android.util.AttributeSet
 import android.view.View
 import online.zhaozhe.androiddemo.R
 import online.zhaozhe.core.utils.dp
+import online.zhaozhe.core.utils.getAvatar
 
 private val BITMAP_SIZE = 200.dp
 private val BITMAP_PADDING = 100.dp
@@ -30,7 +31,7 @@ class CameraView(context: Context, attributeSet: AttributeSet)
         }
 
     private val paint = Paint(Paint.ANTI_ALIAS_FLAG)
-    private val bitmap = getAvatar(BITMAP_SIZE.toInt())
+    private val bitmap = getAvatar(resources, BITMAP_SIZE.toInt())
     private val cliped = Path().apply {
         addOval(BITMAP_PADDING, BITMAP_PADDING, BITMAP_PADDING + BITMAP_SIZE, BITMAP_PADDING + BITMAP_SIZE, Path.Direction.CCW)
     }
@@ -78,14 +79,4 @@ class CameraView(context: Context, attributeSet: AttributeSet)
 //        canvas.drawBitmap(bitmap, BITMAP_PADDING, BITMAP_PADDING,paint)
 //    }
 
-    fun getAvatar(width: Int): Bitmap {
-
-        val options = BitmapFactory.Options();
-        options.inJustDecodeBounds = true
-        BitmapFactory.decodeResource(resources, R.drawable.avatar_rengwuxian,options)
-        options.inJustDecodeBounds = false
-        options.inDensity = options.outWidth
-        options.inTargetDensity = width
-        return BitmapFactory.decodeResource(resources, R.drawable.avatar_rengwuxian,options)
-    }
 }
