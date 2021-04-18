@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<online.zhaozhe.androiddemo.layout.DragToCollectLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                       android:layout_width="match_parent"
+                                                       android:layout_height="match_parent"
+                                                       xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <View
+            android:id="@+id/blue_view"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_weight="1"
+            android:background="#0000E3"
+            android:contentDescription="blue"
+            app:layout_constraintEnd_toStartOf="@id/red_view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+            android:id="@+id/red_view"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_weight="1"
+            android:background="#EA0000"
+            android:contentDescription="red"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/blue_view"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+            android:id="@+id/collectorLayout"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_alignParentBottom="true"
+            android:background="#78909C"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:orientation="horizontal"/>
+
+</online.zhaozhe.androiddemo.layout.DragToCollectLayout>

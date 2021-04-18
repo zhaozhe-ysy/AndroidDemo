@@ -29,6 +29,7 @@
         <activity android:name=".activity.ScalableImageActivity" />
         <activity android:name=".activity.MultiTouchActivity" />
         <activity android:name=".activity.TouchViewGroupActivity" />
+        <activity android:name=".activity.DragActivity" />
 
     </application>
 

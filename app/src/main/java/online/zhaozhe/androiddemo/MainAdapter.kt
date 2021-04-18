@@ -22,7 +22,8 @@ class MainAdapter(private val context: Context) : RecyclerView.Adapter<MainAdapt
         "CustomLayout",
         "ScalableImageView",
         "MultiTouch",
-        "TouchViewGroup"
+        "TouchViewGroup",
+        "Drag"
     )
 
     private val activityArray = arrayOf(
@@ -35,7 +36,8 @@ class MainAdapter(private val context: Context) : RecyclerView.Adapter<MainAdapt
         CustomLayoutActivity::class.java,
         ScalableImageActivity::class.java,
         MultiTouchActivity::class.java,
-        TouchViewGroupActivity::class.java
+        TouchViewGroupActivity::class.java,
+        DragActivity::class.java
     )
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {
